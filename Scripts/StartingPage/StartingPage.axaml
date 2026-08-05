@@ -1,0 +1,235 @@
+<UserControl
+    x:Class="MyAp.StartingPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="clr-namespace:MyAp"
+    x:DataType="vm:ProcessesCollectionViewModel">
+
+    <UserControl.Styles>
+        <StyleInclude Source="../../../Styles/AppStyles.axaml" />
+    </UserControl.Styles>
+
+    <Border Tag="MainBorder">
+
+        <!--  MAIN GRID  -->
+        <Grid Margin="30,0,30,30" RowDefinitions="60, *">
+            <!--  we use margins here to put the logo and name of the app above. the MainBorder does not have padding.  -->
+            <!--  TOP GRID  -->
+            <Grid
+                Grid.Row="0"
+                ColumnDefinitions="*"
+                Tag="TopGrid">
+                <!--  setting a background for the first grid. grids help us to divide the screen or viewport of our app, similar to anchors and stuff in godot.  -->
+                <!--  column definitions, so we have one column here. we can add more if needed. auto mode can be used here for an automated size of the column  -->
+                <!--  using the * allows us to use the proportional spacing, as depending of the size of the viewport/window will be the size of said grid and its childs. in this case, the rectangle will be drawn in the middle.  -->
+
+                <!-- <Rectangle Grid.Column = "0" Fill = "#4D4D4D" Width = "370"></Rectangle> drawing a rectangle, specifying the grid column, the color and the width.-->
+
+                <!--  the stackpanel helps us to put the logo and label centered correctly, putting the "Spacing = 5" to have a space between the elements.  -->
+
+                <StackPanel
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal"
+                    Spacing="5">
+                    <Image
+                        Width="40"
+                        Height="40"
+                        Source="avares://MyAp/assets/icons/app_icon.png" />
+                    <Label Tag="AppTitle">ProcLot Sim</Label>
+                    <Label Tag="AppCredits">Developed by @Alex2os</Label>
+                </StackPanel>
+
+                <!--  foreground helps us to change the color of the label itself. in this case we want it white.  -->
+            </Grid>
+
+            <!--  CENTER GRID  -->
+            <Grid Grid.Row="1" ColumnDefinitions="*">
+                <!--  as the column we are working in has proportional spacing (*), not setting a size for the background or height allows the program to automatically fill the screen with the background/childs of the grid  -->
+
+                <Border Tag="ContentBorder">
+
+                    <Grid ColumnDefinitions="*, *" RowDefinitions="50, *, Auto, 50">
+
+
+                        <Border
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Padding="10">
+                            <!--  this "border" property only allows for ONE CHILD. thats why we have to use grids everywhere and, in this case, use two borders here to order the texts.  -->
+
+                            <Label Tag="TitleLabel">Registrar proceso</Label>
+
+                        </Border>
+
+                        <Border
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Padding="10">
+
+                            <Label Tag="TitleLabel">Procesos registrados</Label>
+
+                        </Border>
+
+                        <Grid Grid.Row="1" Grid.Column="1">
+
+                            <ListBox ItemsSource="{Binding Processes}" Tag="ProcessesAdded">
+                                <!--  this is to allow us to put the listbox and update it with the items we want.  -->
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel>
+                                            <TextBlock>
+                                                <Run Text="Nombre: " />
+                                                <!-- the run's <Run> are to put text without having an space between words.-->
+                                                <Run Text="{Binding _Name}" />
+                                            </TextBlock>
+                                            <TextBlock>
+                                                <Run Text="Operación: " />
+                                                <Run Text="{Binding _Operation}" />
+                                            </TextBlock>
+                                            <TextBlock>
+                                                <Run Text="ID: " />
+                                                <Run Text="{Binding _ID}" />
+                                            </TextBlock>
+                                            <TextBlock>
+                                                <Run Text="Tiempo: " />
+                                                <Run Text="{Binding _Time}" />
+                                            </TextBlock>
+                                            <Button Click="OnEraseButtonClicked">Borrar</Button>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+
+                        </Grid>
+
+                        <Border
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Padding="10">
+
+                            <Grid ColumnDefinitions="*, *" RowDefinitions="*, *, *, *">
+
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    Tag="OptionLabels">
+                                    Nombre
+                                </Label>
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    Tag="OptionLabels">
+                                    Operación
+                                </Label>
+                                <Label
+                                    Grid.Row="2"
+                                    Grid.Column="0"
+                                    Tag="OptionLabels">
+                                    ID
+                                </Label>
+                                <Label
+                                    Grid.Row="3"
+                                    Grid.Column="0"
+                                    Tag="OptionLabels">
+                                    Tiempo
+                                </Label>
+
+                                <TextBox
+                                    x:Name="name"
+                                    Grid.Row="0"
+                                    Grid.Column="1" />
+                                <TextBox
+                                    x:Name="operation"
+                                    Grid.Row="1"
+                                    Grid.Column="1" />
+                                <TextBox
+                                    x:Name="id"
+                                    Grid.Row="2"
+                                    Grid.Column="1" />
+                                <NumericUpDown
+                                    x:Name="time"
+                                    Grid.Row="3"
+                                    Grid.Column="1" />
+                                <!--  this numeric updown allows us to select numbers. value is equal to the default value that we want to show.  -->
+
+                            </Grid>
+
+                        </Border>
+
+                        <Border
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Margin="0,10,0,10"
+                            Tag="SmallBorder">
+                            <Label x:Name="ProcessesAmountLabel">Procesos que se crearán: 0</Label>
+                        </Border>
+
+                        <Button
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            Click="OnAddProcessButtonClicked">
+                            Añadir proceso
+                        </Button>
+
+                        <StackPanel
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            HorizontalAlignment="Left"
+                            Orientation="Horizontal"
+                            Spacing="10">
+                            <Button Click="OnRandomButtonClicked" Tag="SmallButton">
+                                Aleatorio
+                            </Button>
+                            <TextBox x:Name="random_processes">10</TextBox>
+                            <Label Tag="TextSize1">Quantum:</Label>
+                            <TextBox x:Name="quantum_value">3</TextBox>
+                        </StackPanel>
+
+
+
+                        <StackPanel
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            Orientation="Horizontal"
+                            Spacing="5">
+                            <Button
+                                Grid.Column="0"
+                                HorizontalAlignment="Left"
+                                Click="OnStartButtonClicked">
+                                Iniciar el programa
+                            </Button>
+                            <Button
+                                Grid.Column="1"
+                                HorizontalAlignment="Right"
+                                Click="OnRestartButtonClicked"
+                                Tag="SmallButton">
+                                Reiniciar
+                            </Button>
+                        </StackPanel>
+
+                        <!-- <TextBox Grid.Column = "0" Grid.Row = "1" Watermark="example text " Height = "50" Width = "100" VerticalAlignment = "Top"/>  we can use this textbox to introduce the data of the user. -->
+                    </Grid>
+
+
+
+
+
+                </Border>
+
+
+
+
+
+
+
+
+            </Grid>
+
+
+        </Grid>
+
+    </Border>
+
+
+</UserControl>

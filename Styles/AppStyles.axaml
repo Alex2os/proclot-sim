@@ -1,0 +1,300 @@
+<Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style Selector="TextBox">
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="CornerRadius" Value="12" />
+        <Setter Property="BorderBrush">
+            <LinearGradientBrush StartPoint="0,0" EndPoint="50,50">
+                <GradientStop Offset="0" Color="rgba(234, 0, 255, 1)" />
+                <GradientStop Offset="1" Color="rgba(0, 238, 255, 1)" />
+            </LinearGradientBrush>
+        </Setter>
+        <Setter Property="Height" Value="30" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="SelectionBrush">
+            <!--  this property is used to change the selection brush, it means the color when we select text. in this case we do a gradient here.  -->
+            <LinearGradientBrush StartPoint="0,0" EndPoint="50,50">
+                <GradientStop Offset="0" Color="rgba(234, 0, 255, 1)" />
+                <GradientStop Offset="1" Color="rgba(0, 102, 255, 1)" />
+            </LinearGradientBrush>
+        </Setter>
+    </Style>
+
+    <!--  this, specifically, is to change the border of a textbox when it's focused. usually it turns out it, by default, is a blue or red color. this overrides that to put the color or border we want.  -->
+    <Style Selector="TextBox:focus /template/ Border#PART_BorderElement">
+        <Setter Property="BorderBrush">
+            <LinearGradientBrush StartPoint="0,0" EndPoint="50,50">
+                <GradientStop Offset="0" Color="rgba(234, 0, 255, 1)" />
+                <GradientStop Offset="1" Color="rgba(0, 238, 255, 1)" />
+            </LinearGradientBrush>
+        </Setter>
+    </Style>
+
+    <Style Selector="NumericUpDown">
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="CornerRadius" Value="12" />
+        <Setter Property="BorderBrush">
+            <LinearGradientBrush StartPoint="0,0" EndPoint="50,50">
+                <GradientStop Offset="0" Color="rgba(234, 0, 255, 1)" />
+                <GradientStop Offset="1" Color="rgba(0, 238, 255, 1)" />
+            </LinearGradientBrush>
+        </Setter>
+        <Setter Property="Value" Value="5" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Height" Value="30" />
+        <Setter Property="Foreground" Value="White" />
+    </Style>
+
+    <Style Selector="Label">
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="FontWeight" Value="Bold" />
+    </Style>
+
+    <Style Selector="Label[Tag=OptionLabels]">
+        <!--  this allows us to modify just some labels that have the tag "OptionLabels". this is useful for when we just want to modify certain resources or elements of our UI  -->
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="16" />
+    </Style>
+
+    <Style Selector="Label[Tag=AppCredits]">
+    <Setter Property = "VerticalAlignment" Value = "Bottom" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="10" />
+        <Setter Property="Foreground" Value="White" />
+    </Style>
+
+    <Style Selector="Label[Tag=TitleLabel]">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="Foreground" Value="White" />
+    </Style>
+
+    <Style Selector="Label[Tag=TitleLabelSize2]">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="Foreground" Value="White" />
+    </Style>
+
+    <Style Selector="Label[Tag=AppTitle]">
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+    <Style Selector="Label[Tag=TextSize1]">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+    <Style Selector="Border[Tag=MainBorder]">
+
+        <Setter Property="Background">
+            <!--  we can do gradients in the background by using a border property.  -->
+            <LinearGradientBrush StartPoint="0,0" EndPoint="600,600">
+                <!--  endpoint and start point is set by how much you like it.  -->
+                <GradientStop Offset="0" Color="rgba(0, 31, 84, 1)" />
+                <GradientStop Offset="1" Color="rgba(10, 17, 40, 1)" />
+            </LinearGradientBrush>
+        </Setter>
+        <!--<Setter Property = "Padding" Value = "30"/> -->
+
+    </Style>
+
+    <Style Selector="Border[Tag=ContentBorder]">
+
+        <Setter Property="Background">
+            <LinearGradientBrush StartPoint="0,0" EndPoint="350,400">
+                <GradientStop Offset="0" Color="rgba(0, 31, 84, 1)" />
+                <GradientStop Offset="1" Color="rgba(10, 17, 40, 1)" />
+            </LinearGradientBrush>
+        </Setter>
+        <Setter Property="Padding" Value="20" />
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="CornerRadius" Value="12" />
+        <Setter Property="BorderBrush">
+            <LinearGradientBrush StartPoint="0,0" EndPoint="450,500">
+                <GradientStop Offset="0" Color="rgba(234, 0, 255, 1)" />
+                <GradientStop Offset="1" Color="rgba(0, 238, 255, 1)" />
+            </LinearGradientBrush>
+        </Setter>
+    </Style>
+
+    <Style Selector="Border[Tag=MediumBorder]">
+
+        <Setter Property="Background">
+            <LinearGradientBrush StartPoint="0,0" EndPoint="100,150">
+                <GradientStop Offset="0" Color="rgba(0, 31, 84, 1)" />
+                <GradientStop Offset="1" Color="rgba(10, 17, 40, 1)" />
+            </LinearGradientBrush>
+        </Setter>
+        <Setter Property="Padding" Value="20" />
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="CornerRadius" Value="12" />
+        <Setter Property="BorderBrush">
+            <LinearGradientBrush StartPoint="0,0" EndPoint="150,200">
+                <GradientStop Offset="0" Color="rgba(234, 0, 255, 1)" />
+                <GradientStop Offset="1" Color="rgba(0, 238, 255, 1)" />
+            </LinearGradientBrush>
+        </Setter>
+    </Style>
+
+    <Style Selector="Border[Tag=SmallBorder]">
+
+        <Setter Property="Background">
+            <LinearGradientBrush StartPoint="0,0" EndPoint="50,100">
+                <GradientStop Offset="0" Color="rgba(0, 31, 84, 1)" />
+                <GradientStop Offset="1" Color="rgba(10, 17, 40, 1)" />
+            </LinearGradientBrush>
+        </Setter>
+        <Setter Property="Padding" Value="20" />
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="CornerRadius" Value="12" />
+        <Setter Property="BorderBrush">
+            <LinearGradientBrush StartPoint="0,0" EndPoint="100,150">
+                <GradientStop Offset="0" Color="rgba(234, 0, 255, 1)" />
+                <GradientStop Offset="1" Color="rgba(0, 238, 255, 1)" />
+            </LinearGradientBrush>
+        </Setter>
+    </Style>
+
+    <Style Selector="Border[Tag=TinyBorder]">
+
+        <Setter Property="Background">
+            <LinearGradientBrush StartPoint="0,0" EndPoint="50,75">
+                <GradientStop Offset="0" Color="rgba(0, 31, 84, 1)" />
+                <GradientStop Offset="1" Color="rgba(10, 17, 40, 1)" />
+            </LinearGradientBrush>
+        </Setter>
+        <Setter Property="Padding" Value="20" />
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="CornerRadius" Value="12" />
+        <Setter Property="BorderBrush">
+            <LinearGradientBrush StartPoint="0,0" EndPoint="50,100">
+                <GradientStop Offset="0" Color="rgba(234, 0, 255, 1)" />
+                <GradientStop Offset="1" Color="rgba(0, 238, 255, 1)" />
+            </LinearGradientBrush>
+        </Setter>
+    </Style>
+
+    <Style Selector="Border[Tag=LargeHorizontalBorder]">
+
+        <Setter Property="Background">
+            <LinearGradientBrush StartPoint="0,0" EndPoint="200,250">
+                <GradientStop Offset="0" Color="rgba(0, 31, 84, 1)" />
+                <GradientStop Offset="1" Color="rgba(10, 17, 40, 1)" />
+            </LinearGradientBrush>
+        </Setter>
+        <Setter Property="Padding" Value="20" />
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="CornerRadius" Value="12" />
+        <Setter Property="BorderBrush">
+            <LinearGradientBrush StartPoint="0,0" EndPoint="300,350">
+                <GradientStop Offset="0" Color="rgba(234, 0, 255, 1)" />
+                <GradientStop Offset="1" Color="rgba(0, 238, 255, 1)" />
+            </LinearGradientBrush>
+        </Setter>
+    </Style>
+
+    <Style Selector="Grid[Tag=TopGrid]">
+        <!--  tags help us to target single elements instead of a whole group, but specifying what the type the tag will be. in this case, it's a Grid we are targetting.  -->
+        <Setter Property="Height" Value="30" />
+    </Style>
+
+    <Style Selector="ListBox[Tag=ProcessesAdded]">
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="CornerRadius" Value="12" />
+        <Setter Property="BorderBrush">
+            <LinearGradientBrush StartPoint="0,0" EndPoint="300,350">
+                <GradientStop Offset="0" Color="rgba(234, 0, 255, 1)" />
+                <GradientStop Offset="1" Color="rgba(0, 238, 255, 1)" />
+            </LinearGradientBrush>
+        </Setter>
+        <Setter Property="Background">
+            <LinearGradientBrush StartPoint="0,0" EndPoint="200,250">
+                <GradientStop Offset="0" Color="rgba(0, 31, 84, 1)" />
+                <GradientStop Offset="1" Color="rgba(10, 17, 40, 1)" />
+            </LinearGradientBrush>
+        </Setter>
+    </Style>
+
+    <Style Selector="ListBox[Tag=SimulationProcesses]">
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="CornerRadius" Value="12" />
+        <Setter Property="BorderBrush">
+            <LinearGradientBrush StartPoint="0,0" EndPoint="200,250">
+                <GradientStop Offset="0" Color="rgba(234, 0, 255, 1)" />
+                <GradientStop Offset="1" Color="rgba(0, 238, 255, 1)" />
+            </LinearGradientBrush>
+        </Setter>
+        <Setter Property="Background">
+            <LinearGradientBrush StartPoint="0,0" EndPoint="150,200">
+                <GradientStop Offset="0" Color="rgba(0, 31, 84, 1)" />
+                <GradientStop Offset="1" Color="rgba(10, 17, 40, 1)" />
+            </LinearGradientBrush>
+        </Setter>
+    </Style>
+
+    <!--  this is to change the background color when an element of the listbox is selected.  -->
+    <Style Selector="ListBoxItem:selected /template/ ContentPresenter">
+        <Setter Property="Background">
+            <LinearGradientBrush StartPoint="0,0" EndPoint="200,250">
+                <GradientStop Offset="0" Color="rgba(25, 56, 110, 1)" />
+                <GradientStop Offset="1" Color="rgba(34, 43, 75, 1)" />
+            </LinearGradientBrush>
+        </Setter>
+    </Style>
+
+    <Style Selector="Button">
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="CornerRadius" Value="12" />
+        <Setter Property="BorderBrush">
+            <LinearGradientBrush StartPoint="0,0" EndPoint="70,70">
+                <GradientStop Offset="0" Color="rgba(234, 0, 255, 1)" />
+                <GradientStop Offset="1" Color="rgba(0, 238, 255, 1)" />
+            </LinearGradientBrush>
+        </Setter>
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Background" Value="rgba(0, 0, 0, 0.6)" />
+    </Style>
+
+
+    <Style Selector="Run">
+        <Setter Property="FontWeight" Value="Bold" />
+    </Style>
+
+    <Style Selector="Button[Tag=SmallButton]">
+        <Setter Property="BorderBrush">
+            <LinearGradientBrush StartPoint="0,0" EndPoint="50,50">
+                <GradientStop Offset="0" Color="rgba(234, 0, 255, 1)" />
+                <GradientStop Offset="1" Color="rgba(0, 238, 255, 1)" />
+            </LinearGradientBrush>
+        </Setter>
+    </Style>
+
+    <Style Selector="Border[Tag=ProcessInformationTableBorder]">
+
+        <Setter Property="Background">
+            <LinearGradientBrush StartPoint="0,0" EndPoint="500,550">
+                <GradientStop Offset="0" Color="rgba(0, 31, 84, 0.90)" />
+                <GradientStop Offset="1" Color="rgba(10, 17, 40, 0.90)" />
+            </LinearGradientBrush>
+        </Setter>
+        <Setter Property="BorderBrush">
+            <LinearGradientBrush StartPoint="0,0" EndPoint="450,500">
+                <GradientStop Offset="0" Color="rgba(234, 0, 255, 1)" />
+                <GradientStop Offset="1" Color="rgba(0, 238, 255, 1)" />
+            </LinearGradientBrush>
+        </Setter>
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="CornerRadius" Value="12" />
+        <Setter Property="Padding" Value="20" />
+    </Style>
+
+</Styles>

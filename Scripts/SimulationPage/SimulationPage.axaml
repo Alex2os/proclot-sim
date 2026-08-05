@@ -1,0 +1,287 @@
+<UserControl
+    x:Class="MyAp.SimulationPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="clr-namespace:MyAp"
+    x:DataType="vm:ProcessesCollectionViewModel"
+    Focusable="True">
+    <!--  we make this window focusable so the keybinding can be used when clicked on the window. if we dont have this, the command in the keybindingvm will only work when something is focused inside the window itself, like a list, a button, etc.  -->
+
+
+    <UserControl.Styles>
+        <StyleInclude Source="../../../Styles/AppStyles.axaml" />
+    </UserControl.Styles>
+
+    <UserControl.Resources>
+        <vm:KeyBindingViewModel x:Key="KeyBindingVM" />
+    </UserControl.Resources>
+
+    <UserControl.KeyBindings>
+        <KeyBinding Command="{Binding OnPKeyPressedUI, Source={StaticResource KeyBindingVM}}" Gesture="P" />
+        <KeyBinding Command="{Binding OnWKeyPressedUI, Source={StaticResource KeyBindingVM}}" Gesture="W" />
+        <KeyBinding Command="{Binding OnEKeyPressedUI, Source={StaticResource KeyBindingVM}}" Gesture="E" />
+        <KeyBinding Command="{Binding OnCKeyPressedUI, Source={StaticResource KeyBindingVM}}" Gesture="C" />
+        <KeyBinding Command="{Binding OnNKeyPressedUI, Source={StaticResource KeyBindingVM}}" Gesture="N" />
+        <KeyBinding Command="{Binding OnBKeyPressedUI, Source={StaticResource KeyBindingVM}}" Gesture="B" />
+    </UserControl.KeyBindings>
+
+    <Border Tag="MainBorder">
+
+        <!--  MAIN GRID  -->
+        <Grid Margin="30,30,30,30" ColumnDefinitions="*">
+            <!--  margin is used for the grid to have padding. main border can't have padding, as it would override the background and would look black in the parts of the padding.  -->
+            <!--  as the column we are working in has proportional spacing (*), not setting a size for the background or height allows the program to automatically fill the screen with the background/childs of the grid  -->
+
+            <Border Tag="ContentBorder">
+                <!--  visual part starts here  -->
+                <Grid RowDefinitions="Auto, *, 170, Auto">
+
+                    <Grid Grid.Row="0">
+                        <Label x:Name="NewProcessesLabel" Tag="TitleLabel">No. procesos nuevos</Label>
+                    </Grid>
+
+                    <Grid Grid.Row="1" ColumnDefinitions="*, *, *">
+
+
+                        <!--  blocked processes  -->
+                        <Grid Grid.Column="0" RowDefinitions="Auto, *">
+
+                            <Label Grid.Row="0" Tag="TitleLabelSize2">Procesos bloqueados</Label>
+
+                            <ListBox
+                                Grid.Row="1"
+                                Margin="0,0,10,10"
+                                ItemsSource="{Binding BlockedProcesses}"
+                                Tag="SimulationProcesses">
+                                <!--  this is to allow us to put the listbox and update it with the items we want.  -->
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel>
+                                            <TextBlock>
+                                                <Run Text="ID: " />
+                                                <Run Text="{Binding _ID}" />
+                                            </TextBlock>
+                                            <TextBlock>
+                                                <Run Text="TT bloqueado: " />
+                                                <Run Text="{Binding _TimePassedBlocked}" />
+                                            </TextBlock>
+
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+
+                        </Grid>
+
+                        <!--  pending processes  -->
+                        <Grid Grid.Column="1" RowDefinitions="Auto, *">
+
+                            <Label Grid.Row="0" Tag="TitleLabelSize2">Procesos listos</Label>
+
+                            <ListBox
+                                Grid.Row="1"
+                                Margin="5,0,5,10"
+                                ItemsSource="{Binding ReadyProcesses}"
+                                Tag="SimulationProcesses">
+                                <!--  this is to allow us to put the listbox and update it with the items we want.  -->
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel>
+                                            <TextBlock>
+                                                <Run Text="ID: " />
+                                                <Run Text="{Binding _ID}" />
+                                            </TextBlock>
+                                            <TextBlock>
+                                                <Run Text="Tiempo: " />
+                                                <Run Text="{Binding _Time}" />
+                                            </TextBlock>
+                                            <TextBlock>
+                                                <Run Text="TT: " />
+                                                <Run Text="{Binding _TimePassed}" />
+                                            </TextBlock>
+
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+
+                        </Grid>
+
+                        <!--  finished processes  -->
+                        <Grid Grid.Column="2" RowDefinitions="Auto, *">
+
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                Tag="TitleLabelSize2">
+                                Procesos terminados
+                            </Label>
+
+                            <ListBox
+                                Grid.Row="1"
+                                Margin="10,0,0,10"
+                                ItemsSource="{Binding EndedProcesses}"
+                                Tag="SimulationProcesses">
+                                <!--  this is to allow us to put the listbox and update it with the items we want.  -->
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel>
+                                            <TextBlock>
+                                                <Run Text="ID: " />
+                                                <Run Text="{Binding _ID}" />
+                                            </TextBlock>
+                                            <TextBlock>
+                                                <Run Text="Operación: " />
+                                                <Run Text="{Binding _Operation}" />
+                                            </TextBlock>
+                                            <TextBlock>
+                                                <Run Text="Resultado: " />
+                                                <Run Text="{Binding _Result}" />
+                                            </TextBlock>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+
+                        </Grid>
+
+
+                    </Grid>
+
+                    <Grid Grid.Row="2">
+
+                        <Grid RowDefinitions="Auto, *">
+
+                            <Label Grid.Row="0" Tag="TitleLabelSize2">Proceso en ejecución</Label>
+
+                            <Border
+                                Grid.Row="1"
+                                Margin="0,0,0,20"
+                                Tag="LargeHorizontalBorder">
+                                <Grid ColumnDefinitions="*, *, *, *, *" RowDefinitions="Auto, *">
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.Column="0"
+                                        Tag="TextSize1">
+                                        Operación
+                                    </Label>
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        Tag="TextSize1">
+                                        ID
+                                    </Label>
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.Column="2"
+                                        Tag="TextSize1">
+                                        Tiempo
+                                    </Label>
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.Column="3"
+                                        Tag="TextSize1">
+                                        TT
+                                    </Label>
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.Column="4"
+                                        Tag="TextSize1">
+                                        TR
+                                    </Label>
+
+                                    <Label
+                                        x:Name="process_operation"
+                                        Grid.Row="1"
+                                        Grid.Column="0"
+                                        Tag="TextSize1">
+                                        default
+                                    </Label>
+                                    <Label
+                                        x:Name="process_id"
+                                        Grid.Row="1"
+                                        Grid.Column="1"
+                                        Tag="TextSize1">
+                                        default
+                                    </Label>
+                                    <Label
+                                        x:Name="process_time"
+                                        Grid.Row="1"
+                                        Grid.Column="2"
+                                        Tag="TextSize1">
+                                        default
+                                    </Label>
+                                    <Label
+                                        x:Name="process_time_passed"
+                                        Grid.Row="1"
+                                        Grid.Column="3"
+                                        Tag="TextSize1">
+                                        default
+                                    </Label>
+                                    <Label
+                                        x:Name="process_time_left"
+                                        Grid.Row="1"
+                                        Grid.Column="4"
+                                        Tag="TextSize1">
+                                        default
+                                    </Label>
+                                </Grid>
+                            </Border>
+
+                        </Grid>
+
+                    </Grid>
+
+                    <Grid Grid.Row="3" ColumnDefinitions="250, *">
+                        <Border Grid.Column="0" Tag="SmallBorder">
+                            <StackPanel Orientation="Vertical" Spacing="5">
+                                <Label x:Name="TimeCounter" VerticalAlignment="Center">Contador de tiempo: 0</Label>
+                                <Label x:Name="QuantumCounter" VerticalAlignment="Center">Contador del Quantum: 0</Label>
+                            </StackPanel>
+                        </Border>
+
+                        <Border
+                            Grid.Column="1"
+                            Margin="20,0,0,0"
+                            Tag="MediumBorder">
+                            <!--  we can use the margin property to have push the borders, in this case this is used so have some space between the borders.  -->
+                            <StackPanel
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Orientation="Horizontal"
+                                Spacing="20"> 
+                                <!--  we can use the Orientation property to specify the stackpanel which direction we want the elements to order, in this case we want it horizontal, with an spacing of 20 between the elements.  -->
+
+                                <Button Click="OnOpenProcessesInfoTableButtonClicked">Procesos</Button>
+
+                                <Button Click="OnControlsButtonPressed">Controles</Button>
+
+                                <Button Click="OnLeaveSimulationButton">Salir</Button>
+
+                                <Button x:Name="PauseAndPlayButton" Click="OnPauseSimulationButtonClicked">
+                                    Pausar
+                                </Button>
+                            </StackPanel>
+                        </Border>
+
+                    </Grid>
+
+                </Grid>
+
+            </Border>
+
+            <!--  processes info table control border  -->
+            <Border Padding="20">
+                <ContentControl x:Name="ProcessesInfoTableControl" />
+            </Border>
+
+
+
+
+
+
+
+        </Grid>
+
+    </Border>
+</UserControl>

@@ -1,0 +1,18 @@
+<Window
+        x:Class="MyAp.MainWindow"
+        xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:MyAp"
+        Title="ProcLot Sim"
+        Width="800"
+        Height="800"
+        d:DesignHeight="700"
+        d:DesignWidth="700"
+        CanResize="False" 
+        mc:Ignorable="d"> 
+        <!--  with the CanResize property we can make the window non-resizable or resizable. in this case we want it to be not-resizable  -->
+
+        <ContentControl x:Name="MainContent" />
+</Window>

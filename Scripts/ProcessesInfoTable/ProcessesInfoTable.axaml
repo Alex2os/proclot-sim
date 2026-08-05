@@ -1,0 +1,48 @@
+<UserControl
+    x:Class="MyAp.ProcessesInfoTable"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:MyAp"
+    x:DataType="vm:ProcessesCollectionViewModel"
+    mc:Ignorable="d">
+
+    <Border  Tag = "ProcessInformationTableBorder" x:Name="ProcessesInfoTableBorder">
+
+        <Grid RowDefinitions="*, 50">
+
+            <!--  we can use datagrids to generate tables with content of an observablecollection, just like listboxes. this is very useful to make tables out of our processes  -->
+            <DataGrid
+                AutoGenerateColumns="False"
+                GridLinesVisibility="All"
+                IsReadOnly="True"
+                ItemsSource="{Binding Processes}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding _Name}" Header="Nombre" />
+                    <DataGridTextColumn Binding="{Binding _ID}" Header="ID" />
+                    <DataGridTextColumn Binding="{Binding _Operation}" Header="Operación" />
+                    <DataGridTextColumn Binding="{Binding _Result}" Header="Resultado" />
+                    <DataGridTextColumn Binding="{Binding _Time}" Header="TME" />
+
+                    <DataGridTextColumn Binding="{Binding _ArrivingTime}" Header="T de llegada" />
+                    <DataGridTextColumn Binding="{Binding _EndingTime}" Header="T de finalización" />
+                    <DataGridTextColumn Binding="{Binding _WaitingTime}" Header="T de espera" />
+                    <DataGridTextColumn Binding="{Binding _ResponseTime}" Header="T de respuesta" />
+                    <DataGridTextColumn Binding="{Binding _ReturnTime}" Header="T de retorno" />
+                    <DataGridTextColumn Binding="{Binding _ServiceTime}" Header="T de servicio" />
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <Button
+                Grid.Row="1"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Click="OnButtonCloseWindow">
+                Cerrar ventana
+            </Button>
+
+        </Grid>
+    </Border>
+
+</UserControl>
