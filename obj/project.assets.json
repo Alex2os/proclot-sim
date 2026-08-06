@@ -114,12 +114,12 @@
           "Avalonia.Remote.Protocol": "11.3.3"
         },
         "compile": {
-          "lib/net8.0/Avalonia.Controls.ColorPicker.dll": {
+          "lib/net8.0/_._": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net8.0/Avalonia.Controls.ColorPicker.dll": {
+          "lib/net8.0/_._": {
             "related": ".xml"
           }
         }
@@ -168,12 +168,12 @@
           "Avalonia.Themes.Simple": "11.3.3"
         },
         "compile": {
-          "lib/net8.0/Avalonia.Diagnostics.dll": {
+          "lib/net8.0/_._": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net8.0/Avalonia.Diagnostics.dll": {
+          "lib/net8.0/_._": {
             "related": ".xml"
           }
         }
@@ -290,12 +290,12 @@
           "Avalonia": "11.3.3"
         },
         "compile": {
-          "lib/net8.0/Avalonia.Themes.Simple.dll": {
+          "lib/net8.0/_._": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net8.0/Avalonia.Themes.Simple.dll": {
+          "lib/net8.0/_._": {
             "related": ".xml"
           }
         }
@@ -1516,7 +1516,7 @@
     "version": "1.0.0",
     "restore": {
       "projectUniqueName": "/home/alex1ne/Desktop/Coding projects/avalonia-ui-operating-systems-5.0.0/MyAp.csproj",
-      "projectName": "MyAp",
+      "projectName": "ProcLotSim",
       "projectPath": "/home/alex1ne/Desktop/Coding projects/avalonia-ui-operating-systems-5.0.0/MyAp.csproj",
       "packagesPath": "/home/alex1ne/.nuget/packages/",
       "outputPath": "/home/alex1ne/Desktop/Coding projects/avalonia-ui-operating-systems-5.0.0/obj/",
@@ -1567,6 +1567,8 @@
             "version": "[11.3.6, )"
           },
           "Avalonia.Diagnostics": {
+            "include": "None",
+            "suppressParent": "All",
             "target": "Package",
             "version": "[11.3.3, )"
           },

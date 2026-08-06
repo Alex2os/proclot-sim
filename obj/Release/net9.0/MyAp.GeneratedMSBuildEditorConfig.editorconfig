@@ -7,34 +7,37 @@ build_property.AvaloniaNameGeneratorFilterByNamespace = *
 build_property.AvaloniaNameGeneratorViewFileNamingStrategy = NamespaceAndClassName
 build_property.AvaloniaNameGeneratorAttachDevTools = true
 build_property.TargetFramework = net9.0
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v9.0
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = 
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
+build_property.EntryPointFilePath = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MyAp
-build_property.ProjectDir = C:\Users\imale\OneDrive\Escritorio\MyAp\
+build_property.ProjectDir = /home/alex1ne/Desktop/Coding projects/avalonia-ui-operating-systems-5.0.0/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/imale/OneDrive/Escritorio/MyAp/App.axaml]
+[/home/alex1ne/Desktop/Coding projects/avalonia-ui-operating-systems-5.0.0/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/imale/OneDrive/Escritorio/MyAp/Scripts/MainWindow/MainWindow.axaml]
+[/home/alex1ne/Desktop/Coding projects/avalonia-ui-operating-systems-5.0.0/Scripts/MainWindow/MainWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/imale/OneDrive/Escritorio/MyAp/Scripts/ProcessesInfoTable/ProcessesInfoTable.axaml]
+[/home/alex1ne/Desktop/Coding projects/avalonia-ui-operating-systems-5.0.0/Scripts/ProcessesInfoTable/ProcessesInfoTable.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/imale/OneDrive/Escritorio/MyAp/Scripts/SimulationPage/SimulationPage.axaml]
+[/home/alex1ne/Desktop/Coding projects/avalonia-ui-operating-systems-5.0.0/Scripts/SimulationPage/SimulationPage.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/imale/OneDrive/Escritorio/MyAp/Scripts/StartingPage/StartingPage.axaml]
+[/home/alex1ne/Desktop/Coding projects/avalonia-ui-operating-systems-5.0.0/Scripts/StartingPage/StartingPage.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/imale/OneDrive/Escritorio/MyAp/Styles/AppStyles.axaml]
+[/home/alex1ne/Desktop/Coding projects/avalonia-ui-operating-systems-5.0.0/Styles/AppStyles.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

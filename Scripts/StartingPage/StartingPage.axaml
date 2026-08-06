@@ -28,16 +28,22 @@
                 <!--  the stackpanel helps us to put the logo and label centered correctly, putting the "Spacing = 5" to have a space between the elements.  -->
 
                 <StackPanel
-                    HorizontalAlignment="Left"
+                    HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Orientation="Horizontal"
                     Spacing="5">
+
+
                     <Image
                         Width="40"
                         Height="40"
                         Source="avares://MyAp/assets/icons/app_icon.png" />
-                    <Label Tag="AppTitle">ProcLot Sim</Label>
-                    <Label Tag="AppCredits">Developed by @Alex2os</Label>
+
+                    <StackPanel Orientation="Vertical">
+                        <Label Tag="AppTitle">ProcLot Sim</Label>
+                        <Label Tag="AppCredits">Developed by @Alex2os</Label>
+                    </StackPanel>
+
                 </StackPanel>
 
                 <!--  foreground helps us to change the color of the label itself. in this case we want it white.  -->

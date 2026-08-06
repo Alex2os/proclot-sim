@@ -228,3 +228,4 @@ c:/Users/imale/OneDrive/Escritorio/Coding Projects/MyAp/obj/Debug/net9.0/ref/MyA
 /home/alex1ne/Desktop/Coding projects/avalonia-ui-operating-systems-5.0.0/obj/Debug/net9.0/MyAp.pdb
 /home/alex1ne/Desktop/Coding projects/avalonia-ui-operating-systems-5.0.0/obj/Debug/net9.0/MyAp.genruntimeconfig.cache
 /home/alex1ne/Desktop/Coding projects/avalonia-ui-operating-systems-5.0.0/obj/Debug/net9.0/ref/MyAp.dll
+/home/alex1ne/Desktop/Coding projects/avalonia-ui-operating-systems-5.0.0/obj/Debug/net9.0/MyAp.sourcelink.json

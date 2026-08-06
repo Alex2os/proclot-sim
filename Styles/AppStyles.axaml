@@ -202,7 +202,7 @@
 
     <Style Selector="Grid[Tag=TopGrid]">
         <!--  tags help us to target single elements instead of a whole group, but specifying what the type the tag will be. in this case, it's a Grid we are targetting.  -->
-        <Setter Property="Height" Value="30" />
+        <Setter Property="Height" Value="60" />
     </Style>
 
     <Style Selector="ListBox[Tag=ProcessesAdded]">
