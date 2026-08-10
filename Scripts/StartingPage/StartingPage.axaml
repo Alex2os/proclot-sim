@@ -37,7 +37,7 @@
                     <Image
                         Width="40"
                         Height="40"
-                        Source="avares://MyAp/assets/icons/app_icon.png" />
+                        Source="avares://ProcLotSim/assets/icons/app_icon.png" />
 
                     <StackPanel Orientation="Vertical">
                         <Label Tag="AppTitle">ProcLot Sim</Label>

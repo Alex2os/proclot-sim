@@ -64,7 +64,7 @@
     <Setter Property = "VerticalAlignment" Value = "Bottom" />
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="FontSize" Value="10" />
-        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Foreground" Value="#183264" />
     </Style>
 
     <Style Selector="Label[Tag=TitleLabel]">
